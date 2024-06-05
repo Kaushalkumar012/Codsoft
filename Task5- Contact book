@@ -1,1 +1,31 @@
 
+contacts = {}
+
+def add_contacts(num):
+    for i in range(num):
+        name = input("Enter Name: ")
+        phone_number = input("Enter Phone Number: ")
+        contacts[name] = phone_number
+
+def display_contacts():
+    print("\tName\t\tPhone Number")
+    for name, phone_number in contacts.items():
+        print(f'\t{name}\t\t{phone_number}')
+
+def search_contact(name):
+    if name in contacts:
+        print(f"Name: {name}, Phone Number: {contacts[name]}")
+    else:
+        print("Name not found!")
+
+def main():
+    num = int(input("How many contacts do you want to add? "))
+    add_contacts(num)
+    
+    display_contacts()
+    
+    s = input("Enter the Name to search: ")
+    search_contact(s)
+
+if __name__ == "__main__":
+    main()
